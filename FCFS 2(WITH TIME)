@@ -1,0 +1,51 @@
+p=[]
+a=[]
+b=[]
+sum=0
+for i in range(4):
+    x,y,z=map(int,input().split())
+    p.append(x)
+    a.append(y)
+    b.append(z)
+for i in range(0,3):
+    for j in range(0,3-i,1):
+        if(a[j]>a[j+1]):
+            temp1=a[j]
+            a[j]=a[j+1]
+            a[j+1]=temp1
+            
+            temp1=b[j]
+            b[j]=b[j+1]
+            b[j+1]=temp1
+
+            temp1=p[j]
+            p[j]=p[j+1]
+            p[j+1]=temp1
+temp2=b[0]
+b[0]=0
+sum=sum+temp2
+for j in range(1,4):
+    temp2=b[j]
+    b[j]=sum-a[j]
+    sum=sum+temp2
+for i in range(0,3):
+    for j in range(0,3-i,1):
+        if(p[j]>p[j+1]):
+            temp1=a[j]
+            a[j]=a[j+1]
+            a[j+1]=temp1
+
+            temp1=b[j]
+            b[j]=b[j+1]
+            b[j+1]=temp1
+
+            temp1=p[j]
+            p[j]=p[j+1]
+            p[j+1]=temp1
+for i in range(4):
+    if(i<3):
+        print(f"P{i+1} (WT={b[i]}), ",end="")
+    else:
+        print(f"P{i+1} (WT={b[i]})")
+
+    
