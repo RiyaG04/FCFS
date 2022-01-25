@@ -1,0 +1,15 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+bt=[]
+wt=[0]*4
+at=0
+for i in range(4):
+    x=int(input())
+    bt.append(x)
+for i in range(4):
+    wt[i]=at
+    at=wt[i]+bt[i]
+for i in range(4):
+    if(i<3):
+        print(f"P{i+1} (WT={wt[i]}), ",end="")
+    else:
+        print(f"P{i+1} (WT={wt[i]})")
